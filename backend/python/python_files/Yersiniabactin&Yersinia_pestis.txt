@@ -1,0 +1,8 @@
+Entry name	Protein name	Organism	TCDB	Scores
+NUOCD_YERPE	NADH-quinone oxidoreductase subunit C/D (EC 7.1.1.-) (NADH dehydrogenase I subunit C/D) (NDH-1 subunit C/D)	Yersinia pestis	-	0.445
+Q9R7V3_YERPE	Lipoprotein inner membrane ABC-transporter (YbtP protein)	Yersinia pestis	3.A.1.21.1	0.946
+Q9Z375_YERPE	Inner membrane ABC-transporter YbtQ (YbtQ) (YbtQ protein)	Yersinia pestis	3.A.1.21.1	0.946
+YPKA_YERPE	Protein kinase YpkA (Protein kinase A) (EC 2.7.11.1) (Targeted effector protein kinase)	Yersinia pestis	-	0.459
+ZNUA_YERPE	High-affinity zinc uptake system protein ZnuA	Yersinia pestis	-	0.965
+LOLA_YERPE	Outer-membrane lipoprotein carrier protein	Yersinia pestis	-	0.603
+FYUA_YERPE	Pesticin receptor (IRPC)	Yersinia pestis	-	0.437

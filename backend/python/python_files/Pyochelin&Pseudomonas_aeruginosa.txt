@@ -1,0 +1,3 @@
+Entry name	Protein name	Organism	TCDB	Scores
+Q9I192_PSEAE	FpvR	Pseudomonas aeruginosa (strain ATCC 15692 / DSM 22644 / CIP 104116 / JCM 14847 / LMG 12228 / 1C / PRS 101 / PAO1)	-	0.407
+PVDA_PSEAE	L-ornithine N(5)-monooxygenase (EC 1.14.13.195) (L-ornithine N(5)-hydroxylase) (Ornithine hydroxylase) (L-ornithine N(5)-oxygenase) (Pyoverdin biosynthesis protein A)	Pseudomonas aeruginosa (strain ATCC 15692 / DSM 22644 / CIP 104116 / JCM 14847 / LMG 12228 / 1C / PRS 101 / PAO1)	-	0.547

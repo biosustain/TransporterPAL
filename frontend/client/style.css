@@ -1,0 +1,111 @@
+
+#title {
+    font-family: Arial;
+    font-size: 1.7rem;
+    color: darkblue;
+    padding-left: 0.8rem;
+    width: min-width;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#sub-container {
+    max-width: 45rem;
+}
+
+#main-content-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#email-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#email-form input {
+    margin-bottom: 10px;
+    padding: 3px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+#email-form span {
+    width: 100%;
+    text-emphasis: left;
+}
+
+#sub-media-view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+#ABC_Transporter {
+    width: 18rem;
+}
+
+#ERC-logo {
+    width: 12rem;
+}
+
+#NNF-logo {
+    width: 4rem;
+}
+
+#dtu_logo {
+    width: 2.5rem;
+}
+
+#KU-logo {
+    width: 3rem;
+}
+
+#submit-button {
+    width: 100px;
+}
+
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.vertical-center-items {
+    display: flex;
+    align-items: center;
+}
+
+.horizontal-center-items {
+    display: flex;
+    justify-content: center;
+}
+
+/*for the signoff page */
+
+h3{
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
