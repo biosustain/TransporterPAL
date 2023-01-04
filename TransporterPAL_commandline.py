@@ -5,7 +5,7 @@ Created on Thu May  5 10:35:58 2022
 
 @author: Jane Dannow Dyekjaer
 
-@contributor: Joel A. V. Madsen
+@contributors: Joel A. V. Madsen, Alexander Kruhoeffer Bloch Andersen
 
 """
 import asyncio
@@ -372,22 +372,38 @@ for i in range(len(get_output)):
 TCDB=[]       
 
 
-count=len(Entry_name)
-batch_size=50
-for start in range(0,count, batch_size):
-    end= min(count, start+batch_size)   
-    try:
-        for i in Entry_name[start:end]:
-            url_uniprot = "https://rest.uniprot.org"
-            r=requests.post(f"{url_uniprot}/idmapping/run", data={"from": "UniProtKB_AC-ID", "to": "TCDB", "ids":i}) 
-            job_id = r.json()['jobId']
-            response_uniprot = requests.get(f"{url_uniprot}/idmapping/status/{job_id}")      
-            TCDB.append(json.loads(response_uniprot.text))
+def get_tasks_TCDB(async_session):
+    tasks = []
+    for i in Entry_name:
+        url_uniprot = 'https://rest.uniprot.org/idmapping/run'
+        params_uniprot = {"from": "UniProtKB_AC-ID", "to": "TCDB", "ids":i}
+        tasks.append(async_session.post(url_uniprot, data=params_uniprot, headers=headers, ssl=False))
+    return tasks
 
-    except:
-        sys.exit("Connection to host rest.uniprot.org/idmapping failed")
+async def get_uniprot_TCDB():
+    timeout = aiohttp.ClientTimeout(total=1200) #20min
+    async with aiohttp.ClientSession(trust_env=True, timeout=timeout) as async_session:
+        tasks = get_tasks_TCDB(async_session)
 
-#print(TCDB)
+        batch_size=1000
+        for start in range(0, len(tasks), batch_size):
+            end= min(len(tasks), start+batch_size)
+            tasks_to_run = tasks[start:end]
+
+            responses = await asyncio.gather(*tasks_to_run)
+
+            for response in responses:
+                result = await response.text()
+                job_id = json.loads(result)['jobId']
+                res = await fetch(async_session, job_id)
+                TCDB.append(json.loads(res))
+
+# Run event loop
+loop = asyncio.get_event_loop()
+try:
+    loop.run_until_complete(asyncio.gather(get_uniprot_TCDB()))
+except:
+    sys.exit("Connection to host rest.uniprot.org/idmapping failed")
 
 TCDB_IDs=[]
 for i in TCDB:
